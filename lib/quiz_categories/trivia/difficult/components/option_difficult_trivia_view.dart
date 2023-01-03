@@ -1,10 +1,11 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/question_controller_trivia/question_controller_easyTrivia.dart';
+import 'package:quiz_app/quiz_categories/trivia/difficult/question_controller_trivia/question_controller_difficult_trivia.dart';
 
-class OptionTriviaView extends StatelessWidget {
-  const OptionTriviaView({Key? key, required this.text, required this.index, required this.press}) : super(key: key);
+class OptionDifficultTriviaView extends StatelessWidget {
+  const OptionDifficultTriviaView({Key? key, required this.text, required this.index, required this.press}) : super(key: key);
 
   final String text;
   final int index;
@@ -12,15 +13,17 @@ class OptionTriviaView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<QuestionControllerTrivia>(
-        init: QuestionControllerTrivia(),
+    return GetBuilder<QuestionControllerDifficultTrivia>(
+        init: QuestionControllerDifficultTrivia(),
         builder: (qnController) {
           Color getTheRightColor() {
             if (qnController.isAnswered) {
               if (index == qnController.correctAns) {
+                AudioPlayer().play(AssetSource('correct.mp3'));
                 return kGreenColor;
               } else if (index == qnController.selectedAns &&
                   qnController.selectedAns != qnController.correctAns) {
+                AudioPlayer().play(AssetSource('wrong.mp3'));
                 return kRedColor;
               }
             }

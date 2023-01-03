@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/models/Questions.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/components/option_easyTrivia_view.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/question_controller_trivia/question_controller_easyTrivia.dart';
+import 'package:quiz_app/models/questions.dart';
+import 'package:quiz_app/quiz_categories/trivia/difficult/components/option_difficult_trivia_view.dart';
+import 'package:quiz_app/quiz_categories/trivia/difficult/question_controller_trivia/question_controller_difficult_trivia.dart';
 
-class QuestionCardTriviaView extends StatelessWidget {
-  const QuestionCardTriviaView({Key? key, required this.question}) : super(key: key);
+class QuestionCardDifficultTriviaView extends StatelessWidget {
+  const QuestionCardDifficultTriviaView({Key? key, required this.question}) : super(key: key);
 
   final Question question;
   @override
   Widget build(BuildContext context) {
-    QuestionControllerTrivia controller = Get.put(QuestionControllerTrivia());
+    QuestionControllerDifficultTrivia controller = Get.put(QuestionControllerDifficultTrivia());
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: const EdgeInsets.all(kDefaultPadding),
@@ -33,7 +33,7 @@ class QuestionCardTriviaView extends StatelessWidget {
           ...List.generate(
             // Random().nextInt(question.options.length),
             question.options.length,
-                (index) => OptionTriviaView(
+                (index) => OptionDifficultTriviaView(
               index: index,
               text: question.options[index],
               press: () => controller.checkAns(question, index),

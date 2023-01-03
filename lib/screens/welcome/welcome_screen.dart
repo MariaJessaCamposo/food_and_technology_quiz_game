@@ -3,8 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/homepage/homepage_view.dart';
-import 'package:quiz_app/screens/quiz/quiz_screen.dart';
-
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -31,9 +29,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const Text(
                     "Enter your informations below",
-                    style: TextStyle(
-                      color: Colors.white
-                    ),
+                    style: TextStyle(color: Colors.white),
                   ),
                   const Spacer(), // 1/6
                   const TextField(
@@ -55,7 +51,8 @@ class WelcomeScreen extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       alignment: Alignment.center,
-                      padding: const EdgeInsets.all(kDefaultPadding * 0.75), // 15
+                      padding: const EdgeInsets.all(kDefaultPadding * 0.75),
+                      // 15
                       decoration: const BoxDecoration(
                         gradient: kPrimaryGradient,
                         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -66,7 +63,7 @@ class WelcomeScreen extends StatelessWidget {
                             .textTheme
                             .button
                             ?.copyWith(color: Colors.black),
-                              // .copyWith(color: Colors.black),
+                        // .copyWith(color: Colors.black),
                       ),
                     ),
                   ),

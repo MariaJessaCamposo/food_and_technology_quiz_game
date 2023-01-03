@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/controller/question_controller.dart';
 import 'package:quiz_app/models/questions.dart';
-import 'package:quiz_app/screens/quiz/components/option.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/difficult/components/option_cookery_difficult_view.dart';
 
-class QuestionCard extends StatelessWidget {
-  const QuestionCard({Key? key, required this.question}) : super(key: key);
+import '../question_controller_trivia/question_controller_cookery_difficult.dart';
+
+class QuestionCardCookeryDifficultView extends StatelessWidget {
+  const QuestionCardCookeryDifficultView({Key? key, required this.question}) : super(key: key);
 
   final Question question;
-
-  // final Question level_one;
-
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.put(QuestionController());
+    QuestionControllerCookeryDifficult controller = Get.put(QuestionControllerCookeryDifficult());
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: const EdgeInsets.all(kDefaultPadding),
@@ -36,7 +34,7 @@ class QuestionCard extends StatelessWidget {
           ...List.generate(
             // Random().nextInt(question.options.length),
             question.options.length,
-            (index) => Option(
+                (index) => OptionCookeryDifficultView(
               index: index,
               text: question.options[index],
               press: () => controller.checkAns(question, index),

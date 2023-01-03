@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quiz_app/quiz_categories/kte/bpp/bpp_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/cookery_view.dart';
 
 class KitchenToolsEquipmentView extends StatelessWidget {
   const KitchenToolsEquipmentView({Key? key}) : super(key: key);
@@ -16,7 +19,7 @@ class KitchenToolsEquipmentView extends StatelessWidget {
           children: [
             Positioned(
               top: 100,
-                left: 70,
+                left: 80,
                 child: SizedBox(
                   height: 200,
                   width: 200,
@@ -41,11 +44,21 @@ class KitchenToolsEquipmentView extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 45),
+                    SizedBox(height: 25),
                     Text(
-                      "Identify the Tools or Equipment",
+                      "(Identify the Tools or Equipment)",
                       style: TextStyle(
                           fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "Choose a Category",
+                      style: TextStyle(
+                          fontSize: 18,
                         fontWeight: FontWeight.w400
                       ),
                       textAlign: TextAlign.center,
@@ -59,42 +72,48 @@ class KitchenToolsEquipmentView extends StatelessWidget {
                 left: 50,
                 child: Column(
                   children: [
-                    Container(
-                      height: 60,
-                      width: 270,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: const Color(0xffFFEAA7)
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                        child: Text(
-                          "Bread & Pastry",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600
+                    InkWell(
+                      onTap: () => Get.to(const BreadAndPastryView()),
+                      child: Container(
+                        height: 60,
+                        width: 270,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: const Color(0xffFFEAA7)
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                          child: Text(
+                            "Bread & Pastry",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w600
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Container(
-                      height: 60,
-                      width: 270,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: const Color(0xffFFEAA7)
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
-                        child: Text(
-                          "Cookery",
-                          style: TextStyle(
-                              fontSize: 24,
-                            fontWeight: FontWeight.w600
+                    InkWell(
+                      onTap: () => Get.to(const CookeryView()),
+                      child: Container(
+                        height: 60,
+                        width: 270,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: const Color(0xffFFEAA7)
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.fromLTRB(8, 16, 8, 16),
+                          child: Text(
+                            "Cookery",
+                            style: TextStyle(
+                                fontSize: 24,
+                              fontWeight: FontWeight.w600
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
                       ),
                     )

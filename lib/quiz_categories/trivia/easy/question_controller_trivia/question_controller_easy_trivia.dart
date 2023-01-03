@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/models/questions.dart';
-import 'package:quiz_app/screens/score/score_screen.dart';
+import 'package:quiz_app/quiz_categories/trivia/easy/score_screen_easyTrivia/score_screen_easy_trivia.dart';
 
 // We use get package for our state management
 
-class QuestionController extends GetxController
+class QuestionControllerTrivia extends GetxController
     with GetSingleTickerProviderStateMixin {
   // Lets animated our progress bar
 
@@ -19,8 +19,8 @@ class QuestionController extends GetxController
 
   PageController get pageController => _pageController;
 
-  //questions each level
-  final List<Question> _questions = sample_data
+  //new question widget
+  final List<Question> _easyTriviaQuestions = easyTrivia_questions
       .map(
         (question) => Question(
             id: question['id'],
@@ -30,9 +30,7 @@ class QuestionController extends GetxController
       )
       .toList();
 
-  List<Question> get questions => _questions;
-
-  //questions for navigating new question widget
+  List<Question> get easyTriviaQuestions => _easyTriviaQuestions;
 
   bool _isAnswered = false;
 
@@ -57,6 +55,24 @@ class QuestionController extends GetxController
 
   // called immediately after the widget is allocated memory
   @override
+  // void onInit() {
+  //   // Our animation duration is 60 s
+  //   // so our plan is to fill the progress bar within 60s
+  //   _animationController =
+  //       AnimationController(duration: const Duration(seconds: 10), vsync: this);
+  //   _animation = Tween<double>(begin: 0, end: 1).animate(_animationController)
+  //     ..addListener(() {
+  //       // update like setState
+  //       update();
+  //     });
+  //
+  //   // start our animation
+  //   // Once 60s is completed go to the next qn
+  //   _animationController.forward().whenComplete(nextQuestion);
+  //   _pageController = PageController();
+  //   super.onInit();
+  // }
+
   void onInit() {
     // Our animation duration is 60 s
     // so our plan is to fill the progress bar within 60s
@@ -70,7 +86,7 @@ class QuestionController extends GetxController
 
     // start our animation
     // Once 60s is completed go to the next qn
-    _animationController.forward().whenComplete(nextQuestion);
+    _animationController.forward().whenComplete(nextTrivia);
     _pageController = PageController();
     super.onInit();
   }
@@ -82,6 +98,24 @@ class QuestionController extends GetxController
     _animationController.dispose();
     _pageController.dispose();
   }
+
+  // void checkAns(Question question, int selectedIndex) {
+  //   // because once user press any option then it will run
+  //   _isAnswered = true;
+  //   _correctAns = question.answer;
+  //   _selectedAns = selectedIndex;
+  //
+  //   if (_correctAns == _selectedAns) _numOfCorrectAns++;
+  //
+  //   // It will stop the counter
+  //   _animationController.stop();
+  //   update();
+  //
+  //   // Once user select an ans after 3s it will go to the next qn
+  //   Future.delayed(const Duration(seconds: 3), () {
+  //     nextQuestion();
+  //   });
+  // }
 
   void checkAns(Question question, int selectedIndex) {
     // because once user press any option then it will run
@@ -97,12 +131,30 @@ class QuestionController extends GetxController
 
     // Once user select an ans after 3s it will go to the next qn
     Future.delayed(const Duration(seconds: 3), () {
-      nextQuestion();
+      nextTrivia();
     });
   }
 
-  void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
+  // void nextQuestion() {
+  //   if (_questionNumber.value != _questions.length) {
+  //     _isAnswered = false;
+  //     _pageController.nextPage(
+  //         duration: const Duration(milliseconds: 250), curve: Curves.ease);
+  //
+  //     // Reset the counter
+  //     _animationController.reset();
+  //
+  //     // Then start it again
+  //     // Once timer is finish go to the next qn
+  //     _animationController.forward().whenComplete(nextQuestion);
+  //   } else {
+  //     // Get package provide us simple way to naviigate another page
+  //     Get.to(const ScoreScreen());
+  //   }
+  // }
+
+  void nextTrivia() {
+    if (_questionNumber.value != _easyTriviaQuestions.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
@@ -112,10 +164,10 @@ class QuestionController extends GetxController
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion);
+      _animationController.forward().whenComplete(nextTrivia);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(const ScoreScreen());
+      Get.to(const ScoreScreenEasyTrivia());
     }
   }
 

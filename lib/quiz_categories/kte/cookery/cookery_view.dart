@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quiz_app/quiz_categories/trivia/difficult/difficult_trivia_view.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/easy_trivia_view.dart';
-import 'package:quiz_app/quiz_categories/trivia/hard/difficult_trivia_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/difficult/cookery_difficult_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/easy/cookery_easy_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/hard/cookery_hard_view.dart';
 
-class FoodTriviaView extends StatelessWidget {
-  const FoodTriviaView({Key? key}) : super(key: key);
+class CookeryView extends StatelessWidget {
+  const CookeryView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,55 +14,17 @@ class FoodTriviaView extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
-          color: Color(0xffA40FD9),
+          color: Color(0xffE7A1FF),
         ),
         child: Stack(
           children: [
             Positioned(
-              top: 80,
-              left: 80,
-              child: SizedBox(
-                height: 200,
-                width: 200,
-                child: Image.asset(
-                  "lib/assets/icons/trivia.png",
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-            Positioned(
-                top: 330,
-                left: 80,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Food Industry Trivia",
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 10),
-                    Text(
-                      "(Local and Foreign Trivia)",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                )),
-            Positioned(
-                top: 430,
+                top: 250,
                 left: 50,
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () => Get.to(const EasyTriviaView()),
+                      onTap: () => Get.to(const CookeryEasyView()),
                       child: Container(
                         height: 60,
                         width: 270,
@@ -82,7 +44,7 @@ class FoodTriviaView extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     InkWell(
-                      onTap: () => Get.to(const DifficultTriviaView()),
+                      onTap: () => Get.to(const CookeryDifficultView()),
                       child: Container(
                         height: 60,
                         width: 270,
@@ -102,7 +64,7 @@ class FoodTriviaView extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     InkWell(
-                      onTap: () => Get.to(const HardTriviaView()),
+                      onTap: () => Get.to(const CookeryHardView()),
                       child: Container(
                         height: 60,
                         width: 270,

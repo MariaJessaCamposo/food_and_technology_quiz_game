@@ -1,11 +1,34 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/quiz_categories/dish/guess_the_dish.dart';
 import 'package:quiz_app/quiz_categories/kte/kitchen_tools_equipment_view.dart';
 import 'package:quiz_app/quiz_categories/trivia/food_trivia_view.dart';
 
-class HomepageView extends StatelessWidget {
+class HomepageView extends StatefulWidget {
   const HomepageView({Key? key}) : super(key: key);
+
+  @override
+  State<HomepageView> createState() => _HomepageViewState();
+}
+
+class _HomepageViewState extends State<HomepageView> {
+  final audioPlayer = AudioPlayer();
+
+  bool isPlaying = false;
+
+  @override
+  void initState(){
+    super.initState();
+
+    //Listen to states: playing, paused stopped
+    audioPlayer.onPlayerStateChanged.listen((state) {
+      setState(() {
+        isPlaying = state == PlayerState.playing;
+      });
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +70,34 @@ class HomepageView extends StatelessWidget {
                         ],
                       ),
                     )),
-                const Positioned(
+                 Positioned(
                     top: 83,
-                    child: Text(
-                      "Let's Play!",
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                    child: SizedBox(
+                      width: 300,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            "Let's Play!",
+                            style:
+                                TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              isPlaying ? Icons.pause : Icons.play_arrow,
+                            ),
+                            iconSize: 40,
+                            onPressed: () async{
+                              if (isPlaying){
+                                await audioPlayer.pause();
+                              } else{
+                                await audioPlayer.play(AssetSource('bg_music.mp3'));
+                              }
+                            },
+                          )
+
+                        ],
+                      ),
                     )),
                 const Positioned(
                   top: 149,

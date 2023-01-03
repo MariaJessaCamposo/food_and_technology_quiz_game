@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/homepage/homepage_view.dart';
-import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

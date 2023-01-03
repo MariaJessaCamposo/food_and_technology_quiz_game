@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/models/questions.dart';
-import 'package:quiz_app/screens/score/score_screen.dart';
+import 'package:quiz_app/quiz_categories/trivia/difficult/score_screen_difficultTrivia/score_screen_difficult_trivia.dart';
 
 // We use get package for our state management
 
-class QuestionController extends GetxController
+class QuestionControllerDifficultTrivia extends GetxController
     with GetSingleTickerProviderStateMixin {
   // Lets animated our progress bar
 
@@ -19,8 +19,8 @@ class QuestionController extends GetxController
 
   PageController get pageController => _pageController;
 
-  //questions each level
-  final List<Question> _questions = sample_data
+  //new question widget
+  final List<Question> _difficultTriviaQuestions = difficultTrivia_questions
       .map(
         (question) => Question(
             id: question['id'],
@@ -30,9 +30,7 @@ class QuestionController extends GetxController
       )
       .toList();
 
-  List<Question> get questions => _questions;
-
-  //questions for navigating new question widget
+  List<Question> get difficultTriviaQuestions => _difficultTriviaQuestions;
 
   bool _isAnswered = false;
 
@@ -70,7 +68,7 @@ class QuestionController extends GetxController
 
     // start our animation
     // Once 60s is completed go to the next qn
-    _animationController.forward().whenComplete(nextQuestion);
+    _animationController.forward().whenComplete(nextTrivia);
     _pageController = PageController();
     super.onInit();
   }
@@ -97,12 +95,12 @@ class QuestionController extends GetxController
 
     // Once user select an ans after 3s it will go to the next qn
     Future.delayed(const Duration(seconds: 3), () {
-      nextQuestion();
+      nextTrivia();
     });
   }
 
-  void nextQuestion() {
-    if (_questionNumber.value != _questions.length) {
+  void nextTrivia() {
+    if (_questionNumber.value != _difficultTriviaQuestions.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: const Duration(milliseconds: 250), curve: Curves.ease);
@@ -112,10 +110,10 @@ class QuestionController extends GetxController
 
       // Then start it again
       // Once timer is finish go to the next qn
-      _animationController.forward().whenComplete(nextQuestion);
+      _animationController.forward().whenComplete(nextTrivia);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.to(const ScoreScreen());
+      Get.to(const ScoreScreenDifficultTrivia());
     }
   }
 

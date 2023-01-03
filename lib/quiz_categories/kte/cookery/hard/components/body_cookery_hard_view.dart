@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/components/question_card_easyTrivia_view.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/question_controller_trivia/question_controller_easyTrivia.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/hard/components/progress_bar_cookery_hard_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/hard/components/question_card_cookery_hard_view.dart';
+import 'package:quiz_app/quiz_categories/kte/cookery/hard/question_controller_trivia/question_controller_cookery_hard.dart';
 
-import 'progress_bar_easyTrivia_view.dart';
 
-class BodyTriviaView extends StatelessWidget {
-  const BodyTriviaView({Key? key}) : super(key: key);
+class BodyCookeryHardView extends StatelessWidget {
+  const BodyCookeryHardView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    QuestionControllerTrivia questionController = Get.put(QuestionControllerTrivia());
+    QuestionControllerCookeryHard questionController = Get.put(QuestionControllerCookeryHard());
     return Stack(
       children: [
         SvgPicture.asset("lib/assets/icons/bg.svg", fit: BoxFit.fill),
@@ -23,7 +23,7 @@ class BodyTriviaView extends StatelessWidget {
                 const Padding(
                   padding:
                   EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                  child: ProgressBarTrivia(),
+                  child: ProgressBarCookeryHard()
                 ),
                 const SizedBox(height: kDefaultPadding),
                 Padding(
@@ -41,7 +41,7 @@ class BodyTriviaView extends StatelessWidget {
                         // .copyWith(color: kSecondaryColor),
                         children: [
                           TextSpan(
-                            text: "/${questionController.easyTriviaQuestions.length}",
+                            text: "/${questionController.cookeryHardQuestions.length}",
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5
@@ -60,9 +60,9 @@ class BodyTriviaView extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     controller: questionController.pageController,
                     onPageChanged: questionController.updateTheQnNum,
-                    itemCount: questionController.easyTriviaQuestions.length,
-                    itemBuilder: (context, index) => QuestionCardTriviaView(
-                        question: questionController.easyTriviaQuestions[index]),
+                    itemCount: questionController.cookeryHardQuestions.length,
+                    itemBuilder: (context, index) => QuestionCardCookeryHardView(
+                        question: questionController.cookeryHardQuestions[index]),
                   ),
                 ),
               ],

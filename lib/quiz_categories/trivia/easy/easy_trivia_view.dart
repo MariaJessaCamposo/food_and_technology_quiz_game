@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/components/body_easyTrivia_view.dart';
+import 'package:quiz_app/quiz_categories/trivia/easy/components/body_easy_trivia_view.dart';
 
-import 'question_controller_trivia/question_controller_easyTrivia.dart';
+import 'question_controller_trivia/question_controller_easy_trivia.dart';
 
 
 class EasyTriviaView extends StatelessWidget {

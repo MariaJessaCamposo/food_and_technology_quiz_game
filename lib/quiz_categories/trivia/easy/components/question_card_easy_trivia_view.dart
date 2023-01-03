@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/controller/question_controller.dart';
 import 'package:quiz_app/models/questions.dart';
-import 'package:quiz_app/screens/quiz/components/option.dart';
+import 'package:quiz_app/quiz_categories/trivia/easy/components/option_easy_trivia_view.dart';
+import 'package:quiz_app/quiz_categories/trivia/easy/question_controller_trivia/question_controller_easy_trivia.dart';
 
-class QuestionCard extends StatelessWidget {
-  const QuestionCard({Key? key, required this.question}) : super(key: key);
+class QuestionCardTriviaView extends StatelessWidget {
+  const QuestionCardTriviaView({Key? key, required this.question}) : super(key: key);
 
   final Question question;
-
-  // final Question level_one;
-
   @override
   Widget build(BuildContext context) {
-    QuestionController controller = Get.put(QuestionController());
+    QuestionControllerTrivia controller = Get.put(QuestionControllerTrivia());
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       padding: const EdgeInsets.all(kDefaultPadding),
@@ -36,7 +33,7 @@ class QuestionCard extends StatelessWidget {
           ...List.generate(
             // Random().nextInt(question.options.length),
             question.options.length,
-            (index) => Option(
+                (index) => OptionTriviaView(
               index: index,
               text: question.options[index],
               press: () => controller.checkAns(question, index),

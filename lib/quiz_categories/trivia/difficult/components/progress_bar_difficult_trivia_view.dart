@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/quiz_categories/trivia/easy/question_controller_trivia/question_controller_easyTrivia.dart';
+import 'package:quiz_app/quiz_categories/trivia/difficult/question_controller_trivia/question_controller_difficult_trivia.dart';
 
-class ProgressBarTrivia extends StatelessWidget {
-  const ProgressBarTrivia({Key? key}) : super(key: key);
+class ProgressBarDifficultTrivia extends StatelessWidget {
+  const ProgressBarDifficultTrivia({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,8 @@ class ProgressBarTrivia extends StatelessWidget {
         border: Border.all(color: const Color(0xFF3F4768), width: 3),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: GetBuilder<QuestionControllerTrivia>(
-        init: QuestionControllerTrivia(),
+      child: GetBuilder<QuestionControllerDifficultTrivia>(
+        init: QuestionControllerDifficultTrivia(),
         builder: (controller) {
           return Stack(
             children: [

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quiz_app/quiz_categories/dish/easy/play.dart';
 
 class GuessTheDishView extends StatelessWidget {
   const GuessTheDishView({Key? key}) : super(key: key);
@@ -62,6 +64,7 @@ class GuessTheDishView extends StatelessWidget {
                 child: Column(
                   children: [
                     InkWell(
+                      onTap: () => Get.to(Play()),
                       child: Container(
                         height: 60,
                         width: 270,
