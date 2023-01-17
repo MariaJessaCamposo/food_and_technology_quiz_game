@@ -348,3 +348,210 @@ const List hardTrivia_questions = [
     "answer_index": 2,
   },
 ];
+
+//enzyme Technology
+const List enzymeTechnology_questions = [
+  {
+    "id": 1,
+    "question": "Which action will result in denaturing the enzymes present?",
+    "options": [
+      'adding sodium chloride',
+      'chilling in the refrigerator',
+      'hydrolysis of the starches',
+      'warming a mixture to room temperature'
+    ],
+    "answer_index": 1,
+  },
+  {
+    "id": 2,
+    "question":
+        "Which is an example of a natural enzyme source that will weaken a protein gel?",
+    "options": ['grapes', 'honeydew', 'pineapple', 'raspberries'],
+    "answer_index": 2,
+  },
+  {
+    "id": 3,
+    "question":
+        "Photochemicals are group of compounds porduces by plants. Which compound is an example of phytochemicals?",
+    "options": [
+      'fatty acids',
+      'flavonoid pigments',
+      'gums and gels',
+      'hydrates'
+    ],
+    "answer_index": 1,
+  },
+  {
+    "id": 4,
+    "question":
+        "Carotenes are a group of compounds that are phytochemicals. Which foods are good sources of carotenes?",
+    "options": ['collard greens', 'kidney beans', 'onions', 'strawberry'],
+    "answer_index": 0,
+  },
+  {
+    "id": 5,
+    "question": "What is the effect of salts on enzymes?",
+    "options": [
+      'inhibits their ability to react',
+      'raises the pH causing coagulation',
+      'retrogation of protein mixtures',
+      'syneresis of gels'
+    ],
+    "answer_index": 0,
+  },
+];
+
+//food hygiene and sanitation
+const List foodHygieneAndSanitation_questions = [
+  {
+    "id": 1,
+    "question": "What are the FOUR basic sanitation practices?",
+    "options": [
+      'Clean, Sanitize, Cook, Chill',
+      'Clean, Separate, Cook, Chill',
+      'Clear, Separate, Cook, Chill',
+      'Clear, Sanitize, Cook, Chill'
+    ],
+    "answer_index": 1,
+  },
+  {
+    "id": 2,
+    "question":
+        "What is it called if you cut up raw chicken and then make a salad on the same cutting board?",
+    "options": [
+      'food poisoning',
+      'e-coli',
+      'cross-contamination',
+      'food-borne illness'
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 3,
+    "question": "Foodborne illness is often caused by?",
+    "options": [
+      'Improperly packaged commercial foods',
+      'Mayonnaise in prepared food items',
+      'Handling practices that cause\ncontamination of food',
+      'Too many people working with a food'
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 4,
+    "question": "What does hygiene mean?",
+    "options": [
+      'Keeping animals clean',
+      'Portrays physical and mental health',
+      'Practice of maintaining good health',
+      'I have no idea'
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 5,
+    "question": "Food-born illness is?",
+    "options": [
+      'an illness caused from not eating enough',
+      'an eating disorder',
+      'an illness caused by contaminated food',
+      'when you have a food baby'
+    ],
+    "answer_index": 2,
+  },
+];
+
+//food microbiology
+const List foodMicrobiology_questions = [
+  {
+    "id": 1,
+    "question":
+        "Babylonians manufactured beers as early as 7,000 BC. what is the food processing that Babylonians used to create beers?",
+    "options": [
+      'Preservation',
+      'Fermentation',
+      'Pasteurization',
+      'Sterilization'
+    ],
+    "answer_index": 1,
+  },
+  {
+    "id": 2,
+    "question":
+        "He examined and described bacteria using a microscope. Because of this, he is considered the first to discover the microbial world. Who is this scientist?",
+    "options": [
+      'Louis Pasteur',
+      'Nicolas Appert',
+      'Anton Van Leeuwenhook',
+      'Albert Einstein'
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 3,
+    "question":
+        "Biological process that turns sugar (glucose, fructose and sucrose) into ethanol, carbon dioxide and energy?",
+    "options": ['Ethanol Fermentation', 'Lacto Fermentation'],
+    "answer_index": 0,
+  },
+  {
+    "id": 4,
+    "question":
+        "The most effective way to control the growth of bacteria in a food establishment is by controlling _________.",
+    "options": [
+      'pH and oxygen',
+      'time and temperature',
+      'temperature and water activity',
+      'time and food availability'
+    ],
+    "answer_index": 1,
+  },
+  {
+    "id": 5,
+    "question":
+        "Bacteria that can cause foodborne illness will grow on foods that have a pH at _____ or above and water activity (Aw) above _____",
+    "options": ['3.2 ; 0.85', '4.6 ; 0.85', '6.5 ; 0.80', '8.5 ; 0.46'],
+    "answer_index": 1,
+  },
+];
+
+//food nutrition and Health
+const List nutritionAndHealth_questions = [
+  {
+    "id": 1,
+    "question":
+        "What minerals is found in dairy products and helps build strong bone?",
+    "options": ['Calcium', 'Flouride', 'Zinc', 'Copper'],
+    "answer_index": 0,
+  },
+  {
+    "id": 2,
+    "question": "What is a measure of the energy you get from food?",
+    "options": ['Fiber', 'Calorie', 'Trans-Fat', 'Carbohydrate'],
+    "answer_index": 1,
+  },
+  {
+    "id": 3,
+    "question": "Multigrain bread is always whole grain bread.",
+    "options": ['TRUE', 'FALSE'],
+    "answer_index": 1,
+  },
+  {
+    "id": 4,
+    "question":
+        "Food deterioration in the colour, flavour, odour, or consistency of a food product is?",
+    "options": ['Food Contamination', 'Food Poisoning', 'Food Spoilage'],
+    "answer_index": 2,
+  },
+  {
+    "id": 5,
+    "question": "Where can food contamination occur?",
+    "options": [
+      'harvesting',
+      'transporting',
+      'cooking/serving',
+      'All of the above'
+    ],
+    "answer_index": 3,
+  },
+];
